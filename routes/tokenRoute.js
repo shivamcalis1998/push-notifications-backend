@@ -1,5 +1,5 @@
 const express = require("express");
-const tokenModel = require("../model/tokenModel");
+const  tokenModel  = require("../model/tokenModel");
 const dotenv = require("dotenv");
 dotenv.config();
 

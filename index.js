@@ -4,7 +4,6 @@ const port = process.env.PORT || 8000;
 const cors = require("cors");
 const admin = require("firebase-admin");
 const tokenRoute = require("./routes/tokenRoute");
-
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -16,6 +15,7 @@ admin.initializeApp({
 });
 
 app.use("/token", tokenRoute);
+
 app.post("/notificationPost", (req, res) => {
   const { title, body, token, image } = req.body;
   console.log(req.body);
@@ -40,6 +40,6 @@ app.post("/notificationPost", (req, res) => {
 });
 
 app.listen(port, async () => {
-  console.log(`app is running on port ${port}`);
   await connectMongoDb();
+  console.log(`app is running on port ${port}`);
 });
